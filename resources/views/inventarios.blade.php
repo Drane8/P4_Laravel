@@ -8,7 +8,7 @@
 		<!-- En este punto IRA el formulario para añadir una nueva actividad -->
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Nueva Actividad
+				Nuevo Inventario
 			</div>
 
 			<div class="panel-body">
@@ -59,7 +59,7 @@
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-6">
 							<button type="submit" class="btn btn-default">
-								<i class="fa fa-plus"></i>Nuevo Inventario
+								<i class="fa fa-plus"></i>Añadir Inventario
 							</button>
 						</div>
 					</div>
