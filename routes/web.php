@@ -21,8 +21,8 @@ Route::post('/inventario', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'aula' => 'required',
         'articulo' => 'required',
-        'cantidadArticulos' => 'required|max:100|min:1',
-        'fecha' => 'before_or_equal:' . date('Y-m-d'),
+        'cantidadArticulos' => 'required|numeric|between:1,100',
+        'fecha' => 'nullable|before_or_equal:' . date('Y-m-d'),
         'observaciones' => 'max:250'
     ]);
     if ($validator->fails()) {

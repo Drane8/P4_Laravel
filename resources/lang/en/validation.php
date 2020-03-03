@@ -133,6 +133,23 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'aula' => [
+            'required' => 'Es necesario seleccionar un aula'
+        ],
+        'articulo' => [
+            'required' => 'Es necesario seleccionar un artículo'
+        ],
+        'cantidadArticulos' => [
+            'required' => 'Es necesario introducir una cantidad',
+            'numeric' => 'Debe ser un valor numérico',
+            'between' => 'El valor debe estar entre :min y :max, ambos incluidos'
+        ],
+        'fecha' => [
+            'before_or_equal' => 'Debe seleccionar un día igual o anterior a ' . date('d-m-Y')
+        ],
+        'observaciones' => [
+            'max' => 'No debe superar los :max caracteres'
+        ]
     ],
 
     /*
