@@ -18,9 +18,15 @@ class InventarioController extends Controller
         $inventarios = Inventario::all();
         $instalaciones = Instalacion::all();
         $articulos = Articulo::all();
-        return view('inventarios', ['inventarios' => $inventarios, 'instalaciones' => $instalaciones, 'articulos' => $articulos]);
+        return view('insertar', ['inventarios' => $inventarios, 'instalaciones' => $instalaciones, 'articulos' => $articulos]);
 
         
+    }
+
+    public function consultar()
+    {
+        $instalaciones = Instalacion::all();
+        return view('consultar', ['instalaciones' => $instalaciones]);
     }
 
     public function deleteInventario(Request $request)
