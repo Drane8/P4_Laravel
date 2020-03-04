@@ -35,8 +35,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="#">Insertar <span class="sr-only">(current)</span></a>
-					<a class="nav-item nav-link" href="consultar">Consultar</a>
+					<a class="nav-item nav-link {{ Request::segment(1) === null ? 'active' : null }}" href="{{url('/')}}">Insertar <span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link {{ Request::segment(1) === 'consultar' ? 'active' : null }}" href="{{url('/consultar')}}">Consultar</a>
 				</div>
 			</div>
 		</nav>
