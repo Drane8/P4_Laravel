@@ -134,10 +134,12 @@ return [
             'rule-name' => 'custom-message',
         ],
         'aula' => [
-            'required' => 'Es necesario seleccionar un aula'
+            'required' => 'Es necesario seleccionar un aula',
+            'unique' => 'Ya hay una entrada para este aula con este articulo'
         ],
         'articulo' => [
-            'required' => 'Es necesario seleccionar un artículo'
+            'required' => 'Es necesario seleccionar un artículo',
+            'unique' => 'Ya hay una entrada para este aula con este articulo'
         ],
         'cantidadArticulos' => [
             'required' => 'Es necesario introducir una cantidad',
