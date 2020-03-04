@@ -13,8 +13,8 @@
 				</div>
 
 				<div class="card-body">
-					<!-- Mostrar errores de validación 
-					@include('common.errors') -->
+					<!-- Mostrar errores de validación -->
+					@include('common.errors')
 
 
 					<!-- Formulario para añadir una actividad -->
