@@ -14,7 +14,7 @@
 
 				<div class="card-body">
 					<!-- Mostrar errores de validación -->
-					@include('common.errors')
+					{{-- @include('common.errors') --}}
 
 
 					<!-- Formulario para añadir una actividad -->
