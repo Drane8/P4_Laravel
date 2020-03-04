@@ -6,8 +6,12 @@
 		<br><br>
 
 		<ul>
+		@php ($errorAnterior = "")
 			@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
+				@if($errorAnterior != $error)
+					<li>{{ $error }}</li>
+				@endif
+				@php ($errorAnterior = $error)
 			@endforeach
 		</ul>
 	</div>
