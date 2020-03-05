@@ -51,9 +51,30 @@ class InventarioController extends Controller
 
     public function consultar()
     {
-        $inventarios = [];
         $instalaciones = Instalacion::all();
-        return view('consultar', ['instalaciones' => $instalaciones, 'inventarios' => $inventarios]);
+        return view('consultar', ['instalaciones' => $instalaciones]);
+    }
+
+    public function consultarInventarios(Request $request){
+        $validator = Validator::make($request->all(),[
+            'aulas' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return redirect('/consultar')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        $inventarios = Inventario::all()->whereIN('clave_instalacion', $request->aulas);
+
+        if(count($inventarios)==0){
+            $validator->errors()->add('aulas', 'No hay registro para las aulas seleccionadas');
+            return redirect('/consultar')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $instalaciones = Instalacion::all();
+        return view('/consultar',['instalaciones' => $instalaciones, 'inventarios' => $inventarios]);
     }
 
     public function deleteInventario(Request $request)

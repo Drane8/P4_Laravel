@@ -5,7 +5,6 @@
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col-md-10 ">
-
 			<!-- En este punto IRA el formulario para añadir una nueva actividad -->
 			<div class="card my-4">
 				<div class="card-header">
@@ -26,38 +25,48 @@
 							<div class="form-group col-md-6">
 								<!--Instalaciones-->
 								@if (count($instalaciones) > 0)
-								<select id="aula" name="aula" class="form-control 
-								@if($errors->has('aula')) 
-									is-invalid 
-								@elseif(count($errors) > 0) 
-									is-valid 
-								@endif">
-									<option value="" hidden>--SELECCIONE AULA--</option>
-									@foreach ($instalaciones as $instalacion)
-									@php ($aula = $instalacion->clave_instalacion)
-									<option value="{{$aula}}" {{ ( old( "aula" ) == $aula ? "selected":"" ) }}> {{$aula}} </option>
-									@endforeach
-								</select>
-								<div class="invalid-feedback">
-									{{$errors->first('aula')}}
-								</div>
-								@endif
-							</div>
-
-						</div>
-
-						<!-- Add Actividad Button -->
-						<div class="form-group row justify-content-center">
-							<button type="submit" class="btn btn-info">
-								<i class="fa fa-plus"></i> Consultar
-							</button>
-						</div>
+									<div class="container">
+										<div class="selectionator">
+											<span class="search">
+												<span class="shadow"></span>
+												<span class="overlay"></span>
+												SELECCIONE AULA
+											</span>
+											<div class="menu">
+												<ul class="optgroup">
+													@foreach ($instalaciones as $instalacion)
+													@php ($aula = $instalacion->clave_instalacion)
+													<li>
+														<input type="checkbox" name="aulas[]" value="{{$aula}}" id="{{$aula}}" {{ ( old( "aulas" ) == $aula ? "selected":"" ) }} />
+														<label for="{{$aula}}">{{$aula}}</label>
+													</li>
+													@endforeach
+												</ul>
+											</div>
+											@endif
+										</div>
+										<div class=" search form-control errorConsultar 
+												@if($errors->has('aulas')) 
+													is-invalid 
+												@elseif(count($errors) > 0) 
+													is-valid 
+												@endif"></div>
+										<div class="invalid-feedback">
+												{{$errors->first('aulas')}}
+											</div>
+									</div>
+									<!-- Add Actividad Button -->
+									<div class="form-group row justify-content-center">
+										<button type="submit" class="btn btn-info">
+											<i class="fa fa-plus"></i> Consultar
+										</button>
+									</div>
 					</form>
 				</div>
 			</div>
 		</div>
 		<!-- Actividades Actuales -->
-		@if (count($inventarios) > 0)
+		@if (isset($inventarios) && count($inventarios) > 0)
 		<div class="card">
 			<div class="card-header">
 				Inventario Actual

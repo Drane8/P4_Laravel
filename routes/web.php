@@ -21,7 +21,7 @@ Route::post('/inventario', 'InventarioController@insertar');
 
 Route::get("/consultar", 'InventarioController@consultar');
 
-Route::post("/consultar",'InventarioController@consultar');
+Route::post("/consultar",'InventarioController@consultarInventarios');
 
 Route::post('/inventario/borrarinventario', 'InventarioController@deleteInventario');
 
