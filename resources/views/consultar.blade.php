@@ -73,14 +73,17 @@
 			</div>
 
 			<div class="card-body">
-				<table class="table table-striped task-table">
-					<thead>
-						<th>Instalacion</th>
-						<th>Codigo Articulo</th>
+				<table class="table table-responsive-lg table-striped table-borderless">
+				<thead class="bg-info">
+						<tr>
+						<th>Aula</th>
+						<th>Cod. Art.</th>
 						<th>Articulo</th>
 						<th>Cantidad</th>
 						<th>Fecha</th>
 						<th>Observaciones</th>
+						<th></th>
+						</tr>
 					</thead>
 					<tbody>
 						@foreach ($inventarios as $inventario)
