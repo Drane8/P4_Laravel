@@ -307,3 +307,8 @@ input::-moz-focus-outer {
   z-index: 1;
 }
 
+.mensajeError {
+  position: absolute;
+  top: 40px;
+}
+

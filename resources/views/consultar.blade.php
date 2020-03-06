@@ -13,7 +13,7 @@
 
 				<div class="card-body">
 					<!-- Mostrar errores de validación -->
-					@include('common.errors')
+					{{-- @include('common.errors') --}}
 
 
 					<!-- Formulario para añadir una actividad -->
@@ -51,7 +51,7 @@
 												@elseif(count($errors) > 0) 
 													is-valid 
 												@endif"></div>
-										<div class="invalid-feedback">
+										<div class="mensajeError invalid-feedback">
 												{{$errors->first('aulas')}}
 											</div>
 									</div>
