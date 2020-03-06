@@ -65,6 +65,9 @@
 				</div>
 			</div>
 		</div>
+
+		</div>
+		
 		<!-- Actividades Actuales -->
 		@if (isset($inventarios) && count($inventarios) > 0)
 		<div class="card">
@@ -124,7 +127,6 @@
 			</div>
 		</div>
 		@endif
-	</div>
 </div>
 
 <!--COMPLETA: termina la sección -->
