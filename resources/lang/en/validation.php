@@ -151,6 +151,9 @@ return [
         ],
         'observaciones' => [
             'max' => 'No debe superar los :max caracteres'
+        ],
+        'aulas' => [
+            'required' => 'Debe seleccionar al menos un aula'
         ]
     ],
 

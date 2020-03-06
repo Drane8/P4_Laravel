@@ -8,7 +8,7 @@
 			<!-- En este punto IRA el formulario para añadir una nueva actividad -->
 			<div class="card my-4">
 				<div class="card-header">
-					Nuevo Inventario
+					Consultar inventario/s
 				</div>
 
 				<div class="card-body">
@@ -21,7 +21,7 @@
 						<!-- Evitar XSS Cross Site Scripting -->
 						{{csrf_field()}}
 
-						<div class="form-row">
+						<div class="form-row justify-content-center">
 							<div class="form-group col-md-6">
 								<!--Instalaciones-->
 								@if (count($instalaciones) > 0)
