@@ -13,6 +13,11 @@ use App\Articulo;
 
 class InventarioController extends Controller
 {
+
+    /**
+     * Funcion para mostrar la vista insertar
+     *
+     */
     public function index()
     {
         $inventarios = Inventario::all();
@@ -21,13 +26,19 @@ class InventarioController extends Controller
         return view('insertar', ['inventarios' => $inventarios, 'instalaciones' => $instalaciones, 'articulos' => $articulos]);
     }
 
+
+    /**
+     * Esta funcion se encarga de recoger los datos del formulario
+     * validarlos y, si estan correctos, introducirlos en la base de datos
+     *
+     */
     public function insertar(Request $request)
     {
         $aula = $request->get('aula');
         $claveArticulo = explode("|", $request->get('articulo'));
         $validator = Validator::make($request->all(), [
-            'aula' => 'required|unique:inventario,clave_instalacion,NULL,id,codigo_articulo,' . $claveArticulo[0],
-            'articulo' => 'required|unique:inventario,codigo_articulo,NULL,id,clave_instalacion,' . $aula,
+            'aula' => 'required|unique:inventario,clave_instalacion,NULL,NULL,codigo_articulo,' . $claveArticulo[0],
+            'articulo' => 'required|unique:inventario,codigo_articulo,NULL,NULL,clave_instalacion,' . $aula,
             'cantidadArticulos' => 'required|numeric|between:1,100',
             'fecha' => 'nullable|before_or_equal:' . date('Y-m-d'),
             'observaciones' => 'max:250'
@@ -49,12 +60,21 @@ class InventarioController extends Controller
         return redirect('/');
     }
 
+/**
+     * Funcion para mostrar la vista consultar
+     *
+     */
     public function consultar()
     {
         $instalaciones = Instalacion::all();
         return view('consultar', ['instalaciones' => $instalaciones]);
     }
 
+    /**
+     * Muestra los inventarios seleccionados del formulario
+     * que han sido validados previamente
+     *
+     */
     public function consultarInventarios(Request $request){
         $validator = Validator::make($request->all(),[
             'aulas' => 'required'
@@ -77,6 +97,12 @@ class InventarioController extends Controller
         return view('/consultar',['instalaciones' => $instalaciones, 'inventarios' => $inventarios]);
     }
 
+
+
+    /**
+     * Se encarga de borrar un registro de la base de datos
+     *
+     */
     public function deleteInventario(Request $request)
     {
         $rules = [

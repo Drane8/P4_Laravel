@@ -1,12 +1,10 @@
-<!--COMPLETA: extiende el layout -->
 @extends('layouts.app')
-<!--COMPLETA: empieza la sección -->
+
 @section('content')
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col-md-10 ">
 
-			<!-- En este punto IRA el formulario para añadir una nueva actividad -->
 			<div class="card my-4">
 				<div class="card-header">
 					Nuevo Inventario
@@ -17,7 +15,7 @@
 					{{-- @include('common.errors') --}}
 
 
-					<!-- Formulario para añadir una actividad -->
+					<!-- Formulario para añadir un inventario -->
 					<form action="{{url('/inventario')}}" method="POST">
 						<!-- Evitar XSS Cross Site Scripting -->
 						{{csrf_field()}}
@@ -75,7 +73,7 @@
 								@elseif(count($errors) > 0) 
 									is-valid 
 								@endif">
-								<input type="range" min="-10" max="120" value="{{old('cantidadArticulos','1')}}" id="cantidadArticulos" name="cantidadArticulos" class="range-slider__range">
+								<input type="range" min="1" max="100" value="{{old('cantidadArticulos','1')}}" id="cantidadArticulos" name="cantidadArticulos" class="range-slider__range">
 								<span class="range-slider__value">0</span>
 							</div>
 							<div class="invalid-feedback">
@@ -90,14 +88,14 @@
 							<div class="form-group col-md-6">
 								<!--Observaciones-->
 								<label for="observaciones">Observaciones:</label><br />
-								<textarea id="observaciones" name="observaciones" rows="6" style="min-width: 100%" class="form-control 
+								<textarea id="observaciones" name="observaciones" rows="6" maxlength="250" style="min-width: 100%" class="form-control 
 								@if($errors->has('observaciones')) 
 									is-invalid 
 								@elseif(count($errors) > 0) 
 									is-valid 
 								@endif">{{old('observaciones')}}</textarea>
 								<div class="invalid-feedback">
-									Introduzca menos de 250 caracteres
+								{{$errors->first('observaciones')}}
 								</div>
 							</div>
 
@@ -111,12 +109,12 @@
 									is-valid 
 								@endif" />
 								<div class="invalid-feedback">
-									Seleccione una fecha anterior a hoy
+								{{$errors->first('fecha')}}
 								</div>
 							</div>
 
 						</div>
-						<!-- Add Actividad Button -->
+						<!--Boton para añadir inventario -->
 						<div class="form-group row justify-content-center">
 							<button type="submit" class="btn btn-info">
 								<i class="fa fa-plus"></i> Añadir Inventario
@@ -126,7 +124,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- Actividades Actuales -->
+		<!-- Tabla con los inventarios -->
 		@if (count($inventarios) > 0)
 		<div class="card">
 			<div class="card-header">
@@ -188,5 +186,4 @@
 	</div>
 </div>
 
-<!--COMPLETA: termina la sección -->
 @endsection

@@ -1,11 +1,9 @@
-<!--COMPLETA: extiende el layout -->
 @extends('layouts.app')
-<!--COMPLETA: empieza la sección -->
+
 @section('content')
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col-md-10 ">
-			<!-- En este punto IRA el formulario para añadir una nueva actividad -->
 			<div class="card my-4">
 				<div class="card-header">
 					Consultar inventario/s
@@ -16,7 +14,7 @@
 					{{-- @include('common.errors') --}}
 
 
-					<!-- Formulario para añadir una actividad -->
+					<!-- Formulario para consultar inventarios -->
 					<form action="{{url('/consultar')}}" method="POST">
 						<!-- Evitar XSS Cross Site Scripting -->
 						{{csrf_field()}}
@@ -55,7 +53,7 @@
 												{{$errors->first('aulas')}}
 											</div>
 									</div>
-									<!-- Add Actividad Button -->
+									<!--Boton para consultar inventarios -->
 									<div class="form-group row justify-content-center">
 										<button type="submit" class="btn btn-info">
 											<i class="fa fa-plus"></i> Consultar
@@ -68,7 +66,7 @@
 
 		</div>
 		
-		<!-- Actividades Actuales -->
+		<!-- Tabla con los inventarios -->
 		@if (isset($inventarios) && count($inventarios) > 0)
 		<div class="card">
 			<div class="card-header">
@@ -128,6 +126,4 @@
 		</div>
 		@endif
 </div>
-
-<!--COMPLETA: termina la sección -->
 @endsection

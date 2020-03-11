@@ -8,6 +8,7 @@
 		<ul>
 		@php ($errorAnterior = "")
 			@foreach ($errors->all() as $error)
+			<!--Comprobamos que el error no este repetido -->
 				@if($errorAnterior != $error)
 					<li>{{ $error }}</li>
 				@endif
