@@ -1,4 +1,7 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+
 // Base Colors
 $shade-10: #17a2b8 !default;
 $shade-1: #d7dcdf !default;
@@ -347,4 +350,8 @@ input::-moz-focus-outer {
 .mensajeError{
   position: absolute;
   top: 40px;
+}
+
+.botonAncho{
+  width: 100px;
 }

@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+@guest
+<div>No estas logeado</div>
+@else
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col-md-10 ">
-
 			<div class="card my-4">
 				<div class="card-header">
 					Nuevo Inventario
@@ -185,5 +187,6 @@
 		@endif
 	</div>
 </div>
+@endguest
 
 @endsection

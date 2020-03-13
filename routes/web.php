@@ -15,7 +15,7 @@ use App\Http\Controllers\InventarioController;
 use App\Inventario;
 use Illuminate\Http\Request;
 
-Route::get("/", 'InventarioController@index');
+Route::get("/insertar", 'InventarioController@index');
 
 Route::post('/inventario', 'InventarioController@insertar');
 
@@ -29,3 +29,7 @@ Route::post('/inventario/borrarinventario', 'InventarioController@deleteInventar
 Route::get('/', function () {
     return view('welcome');
 }); */
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');

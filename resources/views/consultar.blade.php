@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@guest
+<div>No estas logeado</div>
+@else
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col-md-10 ">
@@ -126,4 +129,5 @@
 		</div>
 		@endif
 </div>
+@endguest
 @endsection

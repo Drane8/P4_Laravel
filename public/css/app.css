@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 *,
 *:before,
@@ -310,5 +310,9 @@ input::-moz-focus-outer {
 .mensajeError {
   position: absolute;
   top: 40px;
+}
+
+.botonAncho {
+  width: 100px;
 }
 
